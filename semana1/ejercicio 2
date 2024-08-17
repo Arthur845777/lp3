@@ -1,1 +1,28 @@
 
+package com.mycompany.lp3_primersemana;
+import java.util.*;
+public class LP3_PrimerSemana {        
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int[] lista = new int[10];
+        int num;
+        int contador=1;
+        System.out.println("ingrese un numero");
+        num=scan.nextInt();
+        lista[0]=num;   //se asigna el primer valor en la posicion 0
+        while(contador<9){
+            System.out.println("ingrese un numero");
+            num=scan.nextInt();
+            if(num>lista[contador-1]){  //comapara el numero anterior del arreglo con el que se ingresara
+                lista[contador]=num;
+                contador++;
+            }
+            else{
+                System.out.println("el numero que ah ingresado no es valido");
+            }
+        }
+        for(int i=0;i<10;i++){
+            System.out.println(lista[i]);
+        }
+    }
+}
