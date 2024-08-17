@@ -1,0 +1,23 @@
+package com.mycompany.estacionamiento;
+import java.util.*;
+public class Estacionamiento {
+    public static double Pago(int time){
+        double deudaT=3.0;
+        if (time>1){
+            deudaT=time*0.50;
+            if(deudaT<=12){
+                return deudaT;
+            }
+            else{
+                return 12;
+            }
+        }
+        return 3;   
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Ingrese el numero de horas que estara aqui");
+        int hora=sc.nextInt();
+        System.out.println(Pago(hora));
+    }
+}
