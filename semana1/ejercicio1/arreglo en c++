@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int sumaArreglo(int lista[]) {
+int sumaArreglo(int lista[], int size) {
     int suma = 0;
-    for (int i = 0; i < 5; i++) {
-        suma += lista[i];
+    for (int i = 0; i < size; i++) {
+        suma += arr[i];
     }
     return suma;
 }
 
 int main() {
     int arreglo[] = {1, 2, 3, 4, 5};
-    cout << sumaArreglo(arreglo) << endl;  // Output: 15
+    int size = 5;
+    cout << sumaArreglo(arreglo, size) << endl;  // Output: 15
     return 0;
 }
-
