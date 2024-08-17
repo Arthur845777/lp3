@@ -1,0 +1,30 @@
+package com.mycompany.menor;
+import java.util.*;
+public class Menor {
+    public static double Menor(double num1, double num2, double num3){
+        if(num1<num2){
+            if(num1<num3){
+                return num1;
+            }
+        }
+        if(num2<num1){
+            if(num2<num3){
+                return num2;
+            }
+        }
+        if(num3<num2){
+            if(num3<num3){
+                return num3;
+            }
+        }
+        return 0;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Ingrese 3 numeros");
+        double n1= sc.nextDouble();
+        double n2= sc.nextDouble();
+        double n3= sc.nextDouble();
+        System.out.println(Menor(n1,n2,n3));
+    }
+}
