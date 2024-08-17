@@ -1,12 +1,12 @@
-package com.mycompany.lp3_primersemana;
+package com.mycompany.dado;
 import java.util.Random;
-public class ejer3 {
-    public static void main(String[] args){
+public class Dado {
+      public static void main(String[] args){
         Random random = new Random();
         int resultado[]=new int[6];
         int contador=0;
         while(contador<20000){
-            int num = random.nextInt(6);  // Genera un número entre 0 y 9
+            int num = random.nextInt(6)+1;  // Genera un número entre 0 y 6
                switch(num){
                    case(1):
                        resultado[0]++;
@@ -29,7 +29,14 @@ public class ejer3 {
                    default:
                        break;
                 }
-        }
-        System.out.println(resultado[0]);          
+               contador++;
+        } 
+        System.out.println("el numero 1 salio " + resultado[0]+ " veces");
+        System.out.println("el numero 2 salio " + resultado[1]+ " veces");
+        System.out.println("el numero 3 salio " + resultado[2]+ " veces");
+        System.out.println("el numero 4 salio " + resultado[3]+ " veces");
+        System.out.println("el numero 5 salio " + resultado[4]+ " veces");
+        System.out.println("el numero 6 salio " + resultado[5]+ " veces");
     }
-} 
+    
+}
