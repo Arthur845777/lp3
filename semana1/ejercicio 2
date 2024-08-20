@@ -1,27 +1,31 @@
-
 package com.mycompany.lp3_primersemana;
 import java.util.*;
-public class LP3_PrimerSemana {        
+
+public class LP3_PrimerSemana {
+
     public static void main(String[] args) {
-        Scanner scan=new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         int[] lista = new int[10];
         int num;
-        int contador=1;
-        System.out.println("ingrese un numero");
-        num=scan.nextInt();
-        lista[0]=num;   //se asigna el primer valor en la posicion 0
-        while(contador<9){
-            System.out.println("ingrese un numero");
-            num=scan.nextInt();
-            if(num>lista[contador-1]){  //comapara el numero anterior del arreglo con el que se ingresara
-                lista[contador]=num;
-                contador++;
-            }
-            else{
-                System.out.println("el numero que ah ingresado no es valido");
+        int contador = 1;
+
+        System.out.println("Ingrese un número");
+        num = scan.nextInt();
+        lista[0] = num;  // Se asigna el primer valor en la posición 0
+
+        while (contador < 9) {  // Bucle que se ejecuta mientras contador sea menor que 9
+            System.out.println("Ingrese un número");
+            num = scan.nextInt();
+
+            if (num > lista[contador - 1]) {  // Verifica si el número ingresado es mayor que el anterior
+                lista[contador] = num;  // Si es mayor, lo almacena en la siguiente posición del arreglo
+                contador++;  // Incrementa el contador para avanzar a la siguiente posición
+            } else {
+                System.out.println("El número que ha ingresado no es válido");
             }
         }
-        for(int i=0;i<10;i++){
+
+        for (int i = 0; i < 10; i++) {  // Bucle que recorre el arreglo para imprimir los números almacenados
             System.out.println(lista[i]);
         }
     }
