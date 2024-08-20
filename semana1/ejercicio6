@@ -1,14 +1,26 @@
 package com.mycompany.calculartime;
 import java.util.*;
 public class CalcularTime {
-    public static void main(String[] args) {
+   	public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         System.out.println("Ingrese el numero de horas");
         int hora=sc.nextInt();
+        while(hora>24 || hora<0){
+            System.out.println("Valor invalido vuelva a intentarlo");
+            hora=sc.nextInt();
+        }
         System.out.println("Ingrese el numero de minutos");
         int min=sc.nextInt();
+        while(min>60 || min<0){
+            System.out.println("Valor invalido vuelva a intentarlo");
+            min=sc.nextInt();
+        }
         System.out.println("Ingrese el numero de segundos");
         int seg= sc.nextInt();
+        while(seg>60|| seg<0){
+            System.out.println("Valor invalido vuelva a intentarlo");
+            seg= sc.nextInt();
+        }
         System.out.println((((hora*60)+min)*60)+seg);
-    }
+	}
 }
