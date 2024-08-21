@@ -1,23 +1,39 @@
 package com.mycompany.estacionamiento;
 import java.util.*;
+
 public class Estacionamiento {
-    public static double Pago(int time){
-        double deudaT=3.0;
-        if (time>1){
-            deudaT=time*0.50;
-            if(deudaT<=12){
-                return deudaT;
+
+    public static double Pago(int time) {
+        double deudaT = 3.0;  // Pago mínimo de S/3.00 por la primera hora
+        int contador = 0;  // Contador de días completos
+
+        if (time > 1) {  // Verifica si el tiempo es mayor a 1 hora
+            while (time >= 24) {  // Resta 24 horas del tiempo total hasta que sea menor a un día
+                time -= 24;
+                contador++;  // Cuenta los días completos
             }
-            else{
-                return 12;
+
+            deudaT = time * 0.50;  // Calcula el costo por horas adicionales
+
+            if (deudaT > 12) {  // Si el costo supera S/12, se establece el tope diario
+                deudaT = 12;
             }
+
+            return deudaT + (contador * 12);  // Suma el costo de días completos y horas adicionales
         }
-        return 3;   
+
+        return 3;  // Retorna el pago mínimo de S/3.00 para 1 hora o menos
     }
+
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Ingrese el numero de horas que estara aqui");
-        int hora=sc.nextInt();
-        System.out.println(Pago(hora));
+        Scanner sc = new Scanner(System.in);
+        int hora = -1;
+
+        while (hora < 0) {  // Asegura que el usuario ingrese un número válido de horas
+            System.out.println("Ingrese el numero de horas que estara aquí");
+            hora = sc.nextInt();
+        }
+
+        System.out.println(Pago(hora));  // Imprime el monto a pagar según las horas ingresadas
     }
 }
