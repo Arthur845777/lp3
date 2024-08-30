@@ -1,0 +1,74 @@
+class Contador { 
+    static int acumulador = 0; 
+    final static int VALOR_INICIAL = 10; 
+    private int valor;
+    
+    // Nuevas variables de clase
+    static int nContadores = 0; 
+    static int ultimoContador; 
+    
+    // Constructor que recibe un valor 
+    public Contador(int valor) { 
+        this.valor = valor; 
+        acumulador += valor; 
+        nContadores++; // Incrementar el número de contadores creados
+        ultimoContador = valor; // Almacenar el valor del último contador creado
+    } 
+    
+    // Constructor sin parámetros que usa VALOR_INICIAL 
+    public Contador() { 
+        this(Contador.VALOR_INICIAL); 
+    } 
+    
+    public static int acumulador() { 
+        return acumulador; 
+    }
+    
+    public void inc() { 
+        valor++; 
+        acumulador++; 
+    } 
+    
+    public int getValor() { 
+        return this.valor; 
+    }
+    
+    // Nuevos métodos para acceder a nContadores y ultimoContador
+    public static int getNContadores() {
+        return nContadores;
+    }
+    
+    public static int getUltimoContador() {
+        return ultimoContador;
+    }
+} 
+
+public class Main {
+    public static void main(String[] args) { 
+        Contador c1, c2; 
+        
+        // Prueba del constructor sin parámetros 
+        c1 = new Contador(); 
+        System.out.println("Valor de c1 (constructor sin parámetros): " + c1.getValor()); // Debería imprimir 10 
+        System.out.println("Acumulador después de c1: " + Contador.acumulador()); // Debería imprimir 10 
+        
+        // Prueba del constructor con un parámetro 
+        c2 = new Contador(5); 
+        System.out.println("Valor de c2 (constructor con parámetro 5): " + c2.getValor()); // Debería imprimir 5 
+        System.out.println("Acumulador después de c2: " + Contador.acumulador()); // Debería imprimir 15 
+        
+        // Incrementar c1 
+        c1.inc(); 
+        System.out.println("Valor de c1 después de inc(): " + c1.getValor()); // Debería imprimir 11 
+        System.out.println("Acumulador después de incrementar c1: " + Contador.acumulador()); // Debería imprimir 16 
+        
+        // Incrementar c2 
+        c2.inc(); 
+        System.out.println("Valor de c2 después de inc(): " + c2.getValor()); // Debería imprimir 6 
+        System.out.println("Acumulador después de incrementar c2: " + Contador.acumulador()); // Debería imprimir 17 
+        
+        // Mostrar el número de contadores creados y el valor del último contador
+        System.out.println("Número de contadores creados: " + Contador.getNContadores()); // Debería imprimir 2
+        System.out.println("Valor del último contador creado: " + Contador.getUltimoContador()); // Debería imprimir 5
+    } 
+}
