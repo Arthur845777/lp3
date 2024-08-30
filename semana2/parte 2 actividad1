@@ -1,0 +1,29 @@
+package src;
+
+public class Cocheejemplo {
+    public static void main(String[] args) {
+        // Crear instancias de la clase Coche
+        coche cocheDeportivo = new coche("Deportivo", "Ferrari", 300, 500, 2022, 300000);
+        coche cocheTodoTerreno = new coche("Todo Terreno", "Jeep", 200, 300, 2020, 150000);
+
+        // Interacción con cocheDeportivo
+        cocheDeportivo.encender();
+        cocheDeportivo.acelerar();
+        cocheDeportivo.frenar();
+        cocheDeportivo.apagar();
+
+        // Aplicar un descuento
+        cocheDeportivo.setDescuento(15);
+        cocheDeportivo.AplicarD();
+
+        // Interacción con cocheTodoTerreno
+        cocheTodoTerreno.encender();
+        cocheTodoTerreno.acelerar();
+        cocheTodoTerreno.frenar();
+        cocheTodoTerreno.apagar();
+
+        // Aplicar un descuento
+        cocheTodoTerreno.AplicarD();
+    }
+}
+
