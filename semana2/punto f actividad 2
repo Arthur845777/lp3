@@ -1,0 +1,49 @@
+class Contador { 
+    static int acumulador = 0; 
+    final static int VALOR_INICIAL = 10; 
+    private int valor; 
+    public static int acumulador() { 
+        return acumulador; 
+
+    } 
+ 
+    // Constructor que recibe un valor 
+    public Contador(int valor) { 
+        this.valor = valor; 
+        acumulador += valor; 
+    } 
+    // Constructor sin parámetros que usa VALOR_INICIAL 
+    public Contador() { 
+        this(Contador.VALOR_INICIAL); 
+    } 
+    public void inc() { 
+        valor++; 
+        acumulador++; 
+    } 
+    public int getValor() { 
+        return this.valor; 
+    } 
+} 
+
+public class Main
+{
+	 public static void main(String[] args) { 
+        Contador c1, c2; 
+        // Prueba del constructor sin parámetros 
+       c1 = new Contador(); 
+        System.out.println("Valor de c1 (constructor sin parámetros): " + c1.getValor()); // Debería imprimir 10 
+        System.out.println("Acumulador después de c1: " + Contador.acumulador()); // Debería imprimir 10 
+        // Prueba del constructor con un parámetro 
+        c2 = new Contador(5); 
+        System.out.println("Valor de c2 (constructor con parámetro 5): " + c2.getValor()); // Debería imprimir 5 
+        System.out.println("Acumulador después de c2: " + Contador.acumulador()); // Debería imprimir 15 
+        // Incrementar c1 
+        c1.inc(); 
+        System.out.println("Valor de c1 después de inc(): " + c1.getValor()); // Debería imprimir 11 
+        System.out.println("Acumulador después de incrementar c1: " + Contador.acumulador()); // Debería imprimir 16 
+        // Incrementar c2 
+        c2.inc(); 
+        System.out.println("Valor de c2 después de inc(): " + c2.getValor()); // Debería imprimir 6 
+        System.out.println("Acumulador después de incrementar c2: " + Contador.acumulador()); // Debería imprimir 17 
+    } 
+}
