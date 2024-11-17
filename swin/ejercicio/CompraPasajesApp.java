@@ -10,10 +10,10 @@ import java.awt.event.ActionListener;
 public class CompraPasajesApp extends JFrame {
     private JTextField campoNombre, campoDocumento, campoFechaViaje; // Campos de texto para datos del pasajero
     private JCheckBox checkAudifonos, checkManta, checkRevista; // Opciones de servicios opcionales
-    private JRadioButton radioPiso1, radioPiso2; // Opciones de piso
+    private JRadioButton radioPiso1, radioPiso2; // Solo se puede seleccionar una opcion
     private JComboBox<String> comboOrigen, comboDestino; // ComboBox para origen y destino
     private JList<String> listaCalidadServicio; // Lista de calidad de servicio
-    private JButton botonMostrarResumen, botonReiniciar; // Botones de acción
+    private JButton botonMostrarResumen; // Botones de acción
 
     // Constructor donde creamos y organizamos la interfaz
     public CompraPasajesApp() {
@@ -106,11 +106,6 @@ public class CompraPasajesApp extends JFrame {
         botonMostrarResumen.setBackground(new Color(173, 216, 230)); // Fondo azul claro
         panelBotones.add(botonMostrarResumen);
 
-        // Botón para reiniciar todos los campos
-        botonReiniciar = new JButton("Reiniciar");
-        botonReiniciar.setBackground(new Color(255, 182, 193)); // Fondo rosa claro
-        panelBotones.add(botonReiniciar);
-
         // Agregamos los paneles principales a la ventana usando GridBagConstraints
         gbc.gridx = 0; gbc.gridy = 0; gbc.fill = GridBagConstraints.HORIZONTAL;
         add(panelDatos, gbc);
@@ -142,23 +137,6 @@ public class CompraPasajesApp extends JFrame {
                 JOptionPane.showMessageDialog(null, resumen, "Resumen del Pasaje", JOptionPane.INFORMATION_MESSAGE);
             }
         });
-
-        // Acción para reiniciar todos los campos
-        botonReiniciar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                campoNombre.setText("");
-                campoDocumento.setText("");
-                campoFechaViaje.setText("");
-                checkAudifonos.setSelected(false);
-                checkManta.setSelected(false);
-                checkRevista.setSelected(false);
-                radioPiso1.setSelected(true);
-                comboOrigen.setSelectedIndex(0);
-                comboDestino.setSelectedIndex(0);
-                listaCalidadServicio.clearSelection();
-            }
-        });
     }
 
     // Método principal
@@ -166,7 +144,7 @@ public class CompraPasajesApp extends JFrame {
         CompraPasajesApp app = new CompraPasajesApp();
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setSize(400, 600);
-        app.setLocationRelativeTo(null);
+        app.setLocationRelativeTo(null);    //centra en la pantalla
         app.setVisible(true);
     }
 }
