@@ -12,7 +12,6 @@ public class CompraPasajesApp extends JFrame {
     private JCheckBox checkAudifonos, checkManta, checkRevista; // Opciones de servicios opcionales
     private JRadioButton radioPiso1, radioPiso2; // Solo se puede seleccionar una opcion
     private JComboBox<String> comboOrigen, comboDestino; // ComboBox para origen y destino
-    private JList<String> listaCalidadServicio; // Lista de calidad de servicio
     private JButton botonMostrarResumen; // Botones de acción
 
     // Constructor donde creamos y organizamos la interfaz
@@ -36,14 +35,14 @@ public class CompraPasajesApp extends JFrame {
 
         // Etiqueta y campo para el documento
         gbc.gridx = 0; gbc.gridy = 1;
-        panelDatos.add(new JLabel("Documento de Identidad:"), gbc);
+        panelDatos.add(new JLabel("DNI:"), gbc);
         campoDocumento = new JTextField(15);
         gbc.gridx = 1; gbc.gridy = 1;
         panelDatos.add(campoDocumento, gbc);
 
         // Etiqueta y campo para la fecha de viaje
         gbc.gridx = 0; gbc.gridy = 2;
-        panelDatos.add(new JLabel("Fecha de Viaje:"), gbc);
+        panelDatos.add(new JLabel("Fecha:"), gbc);
         campoFechaViaje = new JTextField(10);
         gbc.gridx = 1; gbc.gridy = 2;
         panelDatos.add(campoFechaViaje, gbc);
@@ -72,7 +71,7 @@ public class CompraPasajesApp extends JFrame {
 
         // Panel para la ruta del viaje
         JPanel panelRuta = new JPanel(new GridBagLayout());
-        panelRuta.setBorder(BorderFactory.createTitledBorder("Ruta del Viaje"));
+        panelRuta.setBorder(BorderFactory.createTitledBorder("Ruta"));
         panelRuta.setBackground(new Color(240, 248, 255));
 
         // Combo box para origen
@@ -89,21 +88,13 @@ public class CompraPasajesApp extends JFrame {
         gbc.gridx = 1; gbc.gridy = 1;
         panelRuta.add(comboDestino, gbc);
 
-        // Lista de calidad de servicio
-        gbc.gridx = 0; gbc.gridy = 2;
-        panelRuta.add(new JLabel("Calidad de Servicio:"), gbc);
-        listaCalidadServicio = new JList<>(new String[]{"Económico", "Standard", "VIP"});
-        listaCalidadServicio.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        gbc.gridx = 1; gbc.gridy = 2;
-        panelRuta.add(new JScrollPane(listaCalidadServicio), gbc);
-
         // Panel para los botones
         JPanel panelBotones = new JPanel(new FlowLayout());
         panelBotones.setBackground(new Color(240, 248, 255));
 
         // Botón para mostrar el resumen
         botonMostrarResumen = new JButton("Mostrar Resumen");
-        botonMostrarResumen.setBackground(new Color(173, 216, 230)); // Fondo azul claro
+        botonMostrarResumen.setBackground(new Color(173, 200, 200)); // Fondo azul claro
         panelBotones.add(botonMostrarResumen);
 
         // Agregamos los paneles principales a la ventana usando GridBagConstraints
@@ -130,15 +121,13 @@ public class CompraPasajesApp extends JFrame {
                         + (checkRevista.isSelected() ? "Revista " : "") + "\n"
                         + "Piso: " + (radioPiso1.isSelected() ? "1er Piso" : "2do Piso") + "\n"
                         + "Origen: " + comboOrigen.getSelectedItem() + "\n"
-                        + "Destino: " + comboDestino.getSelectedItem() + "\n"
-                        + "Calidad de Servicio: " + listaCalidadServicio.getSelectedValue();
+                        + "Destino: " + comboDestino.getSelectedItem();
 
                 // Muestra el resumen en un cuadro de diálogo
                 JOptionPane.showMessageDialog(null, resumen, "Resumen del Pasaje", JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }
-
     // Método principal
     public static void main(String[] args) {
         CompraPasajesApp app = new CompraPasajesApp();
